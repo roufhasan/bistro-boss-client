@@ -5,6 +5,7 @@ export default {
     extend: {},
     fontFamily: {
       Inter: ["Inter", "sans-serif"],
+      Cinzel: ["Cinzel", "serif"],
     },
   },
   plugins: [require("daisyui")],

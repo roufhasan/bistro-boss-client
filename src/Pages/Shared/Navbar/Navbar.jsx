@@ -1,7 +1,27 @@
 const Navbar = () => {
+  const navOptions = (
+    <>
+      <li>
+        <a>Home</a>
+      </li>
+      <li>
+        <a>contact us</a>
+      </li>
+      <li>
+        <a>dashboard</a>
+      </li>
+      <li>
+        <a>our menu</a>
+      </li>
+      <li>
+        <a>our shop</a>
+      </li>
+    </>
+  );
+
   return (
     <>
-      <div className="navbar bg-base-100">
+      <div className="navbar py-6 px-8 bg-[#151515] bg-opacity-50 text-white fixed z-10">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -24,49 +44,16 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Parent</a>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a>Item 3</a>
-              </li>
+              {navOptions}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+          <div className="uppercase">
+            <p className="font-black text-3xl">Bistro Boss</p>
+            <p className="font-bold tracking-[9px] text-2xl">Restaurant</p>
+          </div>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li tabIndex={0}>
-              <details>
-                <summary>Parent</summary>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </details>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
-          </ul>
+          <ul className="menu menu-horizontal px-1">{navOptions}</ul>
         </div>
         <div className="navbar-end">
           <a className="btn">Button</a>
