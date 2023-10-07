@@ -1,20 +1,67 @@
+import { NavLink } from "react-router-dom";
+
 const Navbar = () => {
   const navOptions = (
     <>
       <li>
-        <a>Home</a>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            `${
+              isActive && "text-[#EEFF25] font-bold"
+            } text-xl font-bold uppercase`
+          }
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <a>contact us</a>
+        <NavLink
+          to="/contact"
+          className={({ isActive }) =>
+            `${
+              isActive && "text-[#EEFF25] font-bold"
+            } text-xl font-bold uppercase`
+          }
+        >
+          Contact us
+        </NavLink>
       </li>
       <li>
-        <a>dashboard</a>
+        <NavLink
+          to="/dashboard"
+          className={({ isActive }) =>
+            `${
+              isActive && "text-[#EEFF25] font-bold"
+            } text-xl font-bold uppercase`
+          }
+        >
+          Dashboard
+        </NavLink>
       </li>
       <li>
-        <a>our menu</a>
+        <NavLink
+          to="/menu"
+          className={({ isActive }) =>
+            `${
+              isActive && "text-[#EEFF25] font-bold"
+            } text-xl font-bold uppercase`
+          }
+        >
+          Our menu
+        </NavLink>
       </li>
       <li>
-        <a>our shop</a>
+        <NavLink
+          to="/shop"
+          className={({ isActive }) =>
+            `${
+              isActive && "text-[#EEFF25] font-bold"
+            } text-xl font-bold uppercase`
+          }
+        >
+          Our shop
+        </NavLink>
       </li>
     </>
   );
