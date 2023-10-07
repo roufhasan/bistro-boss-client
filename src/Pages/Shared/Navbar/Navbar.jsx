@@ -7,9 +7,7 @@ const Navbar = () => {
         <NavLink
           to="/"
           className={({ isActive }) =>
-            `${
-              isActive && "text-[#EEFF25] font-bold"
-            } text-xl font-bold uppercase`
+            `${isActive && "text-[#EEFF25]"} text-xl font-bold uppercase`
           }
         >
           Home
@@ -19,9 +17,7 @@ const Navbar = () => {
         <NavLink
           to="/contact"
           className={({ isActive }) =>
-            `${
-              isActive && "text-[#EEFF25] font-bold"
-            } text-xl font-bold uppercase`
+            `${isActive && "text-[#EEFF25]"} text-xl font-bold uppercase`
           }
         >
           Contact us
@@ -31,9 +27,7 @@ const Navbar = () => {
         <NavLink
           to="/dashboard"
           className={({ isActive }) =>
-            `${
-              isActive && "text-[#EEFF25] font-bold"
-            } text-xl font-bold uppercase`
+            `${isActive && "text-[#EEFF25]"} text-xl font-bold uppercase`
           }
         >
           Dashboard
@@ -43,9 +37,7 @@ const Navbar = () => {
         <NavLink
           to="/menu"
           className={({ isActive }) =>
-            `${
-              isActive && "text-[#EEFF25] font-bold"
-            } text-xl font-bold uppercase`
+            `${isActive && "text-[#EEFF25]"} text-xl font-bold uppercase`
           }
         >
           Our menu
@@ -55,9 +47,7 @@ const Navbar = () => {
         <NavLink
           to="/shop"
           className={({ isActive }) =>
-            `${
-              isActive && "text-[#EEFF25] font-bold"
-            } text-xl font-bold uppercase`
+            `${isActive && "text-[#EEFF25]"} text-xl font-bold uppercase`
           }
         >
           Our shop
