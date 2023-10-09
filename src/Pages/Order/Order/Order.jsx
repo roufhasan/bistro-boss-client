@@ -23,7 +23,7 @@ const Order = () => {
   const drinks = menu.filter((item) => item.category === "drinks");
 
   return (
-    <section>
+    <section className="mb-[130px]">
       <Helmet>
         <title>Bistro Boss | Order From Shop</title>
       </Helmet>
@@ -34,7 +34,7 @@ const Order = () => {
       />
       <div className="px-[3%]">
         <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-          <TabList>
+          <TabList className="mb-12">
             <Tab>Salads</Tab>
             <Tab>Pizzas</Tab>
             <Tab>Soups</Tab>

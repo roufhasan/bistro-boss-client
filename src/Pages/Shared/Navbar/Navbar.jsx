@@ -1,4 +1,5 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { GoPasskeyFill } from "react-icons/go";
 
 const Navbar = () => {
   const navOptions = (
@@ -93,7 +94,11 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navOptions}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          <Link to="/login" className="py-2 px-4 text-xl font-bold uppercase">
+            <div className="flex justify-center items-center gap-2">
+              Login <GoPasskeyFill size={24} className="text-[#EEFF25]" />
+            </div>
+          </Link>
         </div>
       </div>
     </>

@@ -8,10 +8,10 @@ const FoodCard = ({ item }) => {
           ${price}
         </p>
       </div>
-      <div className="text-center py-8 px-[40px] bg-[#F3F3F3]">
+      <div className="text-center py-8 px-[40px] bg-[#F3F3F3] h-[300px] flex flex-col">
         <h3 className="text-2xl font-semibold">{name}</h3>
         <p className="mt-2 mb-6">{recipe}</p>
-        <button className="uppercase bg-[#E8E8E8] text-[#BB8506] text-xl font-medium py-5 px-7 border-b-[3px] border-b-[#BB8506] rounded-lg hover:bg-[#1F2937] transition-all">
+        <button className="uppercase bg-[#E8E8E8] text-[#BB8506] text-xl font-medium py-5 px-7 border-b-[3px] border-b-[#BB8506] rounded-lg hover:bg-[#1F2937] transition-all mt-auto">
           Add to cart
         </button>
       </div>
