@@ -1,14 +1,19 @@
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
-  LoadCanvasTemplateNoReload,
   validateCaptcha,
 } from "react-simple-captcha";
 import authBgImg from "../../assets/others/authentication.png";
 import authAvatar from "../../assets/others/authentication2.png";
-import { useEffect } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
+  const captchaRef = useRef(null);
+  const [disabled, setDisabled] = useState(true);
+
+  const { signIn, loading, setLoading } = useContext(AuthContext);
+
   useEffect(() => {
     loadCaptchaEnginge(6);
   }, []);
@@ -19,6 +24,23 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+    signIn(email, password)
+      .then((res) => {
+        console.log(res.user);
+      })
+      .catch((err) => {
+        console.log(err.message);
+        setLoading(false);
+      });
+  };
+
+  const hanldeCaptchaValidation = () => {
+    const user_captcha_value = captchaRef.current.value;
+    if (validateCaptcha(user_captcha_value)) {
+      setDisabled(false);
+    } else {
+      setDisabled(true);
+    }
   };
 
   return (
@@ -59,6 +81,8 @@ const Login = () => {
               <LoadCanvasTemplate />
             </div>
             <input
+              ref={captchaRef}
+              onBlur={hanldeCaptchaValidation}
               type="text"
               name="captcha"
               id="captcha"
@@ -67,9 +91,12 @@ const Login = () => {
               className="py-[27px] pl-[30px] w-full border border-[#D0D0D0] rounded-lg mt-4"
             />
             <input
+              disabled={disabled || loading}
               type="submit"
               value="Sign in"
-              className="w-full bg-[#d1a054] bg-opacity-70 py-6 text-white text-xl font-bold mt-8 cursor-pointer"
+              className={`w-full bg-[#d1a054] ${
+                disabled && `bg-[#aa8c5e]`
+              } bg-opacity-70 py-6 text-white text-xl font-bold mt-8 cursor-pointer`}
             />
           </form>
         </div>
