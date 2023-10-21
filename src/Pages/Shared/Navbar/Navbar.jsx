@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import { GoPasskeyFill } from "react-icons/go";
+import { BsCart4 } from "react-icons/bs";
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
 
@@ -63,6 +64,16 @@ const Navbar = () => {
         >
           Our shop
         </NavLink>
+      </li>
+      <li className="relative">
+        <Link>
+          <div>
+            <BsCart4 className="text-2xl w-7 h-7 bg-green-600 rounded-full" />
+            <p className="bg-red-500 text-lg w-6 h-6 text-center rounded-full absolute right-0 bottom-0">
+              1
+            </p>
+          </div>
+        </Link>
       </li>
     </>
   );
