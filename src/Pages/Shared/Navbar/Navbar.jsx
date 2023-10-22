@@ -3,9 +3,11 @@ import { GoPasskeyFill } from "react-icons/go";
 import { BsCart4 } from "react-icons/bs";
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
+import useCart from "../../../hooks/useCart";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [cart] = useCart();
 
   const handleLogOut = () => {
     logOut()
@@ -70,7 +72,7 @@ const Navbar = () => {
           <div>
             <BsCart4 className="text-2xl w-7 h-7 bg-green-600 rounded-full" />
             <p className="bg-red-500 text-lg w-6 h-6 text-center rounded-full absolute right-0 bottom-0">
-              1
+              {cart?.length || 0}
             </p>
           </div>
         </Link>
