@@ -16,6 +16,9 @@ import {
 } from "react-icons/fa";
 
 const Dashboard = () => {
+  // TODO: load data from server to have dynamic isAdmin value based on role
+  const isAdmin = true;
+
   const adminNavOptions = (
     <>
       <NavLink
@@ -59,7 +62,7 @@ const Dashboard = () => {
         <FaBook size={24} /> Manage bookings
       </NavLink>
       <NavLink
-        to="/dashboard/"
+        to="/dashboard/allusers"
         className={({ isActive }) =>
           `${
             isActive && "text-white font-bold"
@@ -144,7 +147,7 @@ const Dashboard = () => {
           <p className="text-lg">Restaurant</p>
         </div>
         <div className="flex flex-col gap-6">
-          {userNavOptiosn}
+          {isAdmin ? adminNavOptions : userNavOptiosn}
           <div className="w-full h-[1px] bg-white"></div>
           <NavLink
             to="/"
