@@ -68,7 +68,7 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li className="relative">
-        <Link>
+        <Link to="/dashboard/mycart">
           <div>
             <BsCart4 className="text-2xl w-7 h-7 bg-green-600 rounded-full" />
             <p className="bg-red-500 text-lg w-6 h-6 text-center rounded-full absolute right-0 bottom-0">
