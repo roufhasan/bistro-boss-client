@@ -18,21 +18,33 @@ const SignUp = () => {
   } = useForm();
 
   const handleSignUp = (data) => {
-    console.log(data);
     createUser(data.email, data.password)
       .then((res) => {
         const loggedUser = res.user;
         console.log(loggedUser);
         updateUserProfile(data.name, data.photoURL)
           .then(() => {
-            Swal.fire({
-              position: "top",
-              icon: "success",
-              title: "Yeaaa.. Sign Up Successful",
-              showConfirmButton: false,
-              timer: 1500,
-            });
-            navigate("/");
+            const saveUser = { name: data.name, email: data.email };
+            fetch("http://localhost:5000/users", {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(saveUser),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                if (data.insertedId) {
+                  Swal.fire({
+                    position: "top",
+                    icon: "success",
+                    title: "Yeaaa.. Sign Up Successful",
+                    showConfirmButton: false,
+                    timer: 1500,
+                  });
+                  navigate("/");
+                }
+              });
           })
           .catch((err) => console.log(err));
       })

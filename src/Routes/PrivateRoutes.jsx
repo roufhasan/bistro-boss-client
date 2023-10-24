@@ -7,7 +7,11 @@ const PrivateRoutes = ({ children }) => {
   const location = useLocation();
 
   if (loading) {
-    return <span className="loading loading-dots loading-lg"></span>;
+    return (
+      <div className="w-full h-screen grid place-items-center">
+        <span className="loading loading-dots loading-lg"></span>
+      </div>
+    );
   }
 
   if (user) {
