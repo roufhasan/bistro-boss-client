@@ -6,6 +6,7 @@ import { Helmet } from "react-helmet-async";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const SignUp = () => {
   const { createUser, loading, setLoading, updateUserProfile } =
@@ -137,6 +138,7 @@ const SignUp = () => {
                 Go to log in
               </Link>
             </p>
+            <SocialLogin />
           </div>
           <div className="w-1/2">
             <img src={authAvatar} alt="" />
