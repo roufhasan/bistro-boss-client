@@ -10,6 +10,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
+import axios from "axios";
 
 export const AuthContext = createContext(null);
 
@@ -57,6 +58,22 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       console.log(currentUser);
+
+      // get and set jwt token to client side to verify user's admin role
+      if (currentUser) {
+        axios
+          .post("http://localhost:5000/jwt", { email: currentUser.email })
+          .then((data) => {
+            const token = data.data.token;
+            localStorage.setItem("access-token", token);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      } else {
+        localStorage.removeItem("access-token");
+      }
+
       setloading(false);
     });
     return () => {
