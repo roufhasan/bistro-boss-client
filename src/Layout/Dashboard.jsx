@@ -14,10 +14,13 @@ import {
   FaWallet,
   FaShoppingCart,
 } from "react-icons/fa";
+import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
   // TODO: load data from server to have dynamic isAdmin value based on role
-  const isAdmin = true;
+  // const isAdmin = true;
+
+  const [isAdmin] = useAdmin();
 
   const adminNavOptions = (
     <>
